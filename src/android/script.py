@@ -1,5 +1,5 @@
-import requests
 from bs4 import BeautifulSoup
+from selenium import webdriver
 
 def get_app_reviews(url: str) -> list:
     '''
@@ -9,7 +9,7 @@ def get_app_reviews(url: str) -> list:
 
         Note: Use selenium to mimic real browser to be able to access reviews page
     '''
-    response = requests.get(url)
+    
     pass
 
 def clean_data() -> None:
