@@ -15,8 +15,7 @@ def get_app_reviews(url: str) -> list:
     driver = webdriver.Chrome(executable_path='/home/amara/Desktop/reviewscraper/driver/chromedriver')
     # 2. Navigate to the reviews page which is passed as the url parameter
     driver.get(url)
-    driver.implicitly_wait(10)
-    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+   
     soup = BeautifulSoup(driver.page_source, "html.parser")
     reviews = soup.find_all(class_="EGFGHd")
     
@@ -24,9 +23,8 @@ def get_app_reviews(url: str) -> list:
  
     # 3. Iterate through the reviews and extract the review text and other relevant information
     for review in reviews:
-        review_list.append(review.text)
     # 4. Add the review text and other relevant information to a list
-
+        review_list.append(review.text)
     # 5. Return the list
     print(review_list)
     driver.close()
